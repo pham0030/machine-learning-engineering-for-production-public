@@ -73,6 +73,18 @@ For Windows:
 minikube start --mount=True --mount-string="C:/tmp:/var/tmp" --vm-driver=virtualbox
 ```
 
+For Windows WSL2:
+
+```
+minikube start --mount=True --mount-string="C:/tmp:/var/tmp" --vm-driver=docker --ports=127.0.0.1:30001:30001
+```
+### NOTE
+Due to current bug as of 2022-05-17, we should include the `extra-config` option as shown below when start the `minikube` to display the CPU/Memory Usage
+
+```
+minikube start --mount=True --mount-string="C:/tmp:/var/tmp" --vm-driver=docker --ports=127.0.0.1:30001:30001 --extra-config=kubelet.housekeeping-interval=3s
+```
+
 <details>
 <summary> <i>Troubleshooting: Please click here if you're getting errors with these commands. </i></summary>
 
